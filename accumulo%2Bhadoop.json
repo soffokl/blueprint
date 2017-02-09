@@ -1,0 +1,45 @@
+{
+    "name": "My Accumulo over Hadoop cluster",
+    "description": "The sample accumulo over hadoop cluster",
+    "nodes": [{
+	"name": "hadoop-name-node",
+	"template": "hadoop27",
+	"peer_group": "US-GROUP",
+	"size": "HUGE"
+    }, {
+	"name": "hadoop-2",
+	"template": "hadoop27",
+	"peer_group": "EU-GROUP",
+	"size": "HUGE"
+    }, {
+	"name": "hadoop-3",
+	"template": "hadoop27",
+	"peer_group": "US-GROUP",
+	"size": "HUGE"
+    }],
+    "peerGroups": [{
+	"name": "US-GROUP",
+	"pricingPref": {
+	    "maxPrice": "20"
+	},
+	"hwPreferences": {
+	    "avgCpuLoad": "50",
+	    "minFreeRam": "128MiB",
+	    "minFreeDiskSpace": "500MiB"
+	},
+	"zonePreferences": {},
+	"proximityPreferences": {}
+    }, {
+	"name": "EU-GROUP"
+    }],
+    "sshKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjo6fLXczBYpZTd7dpOZDgiasvuQfjkQNiGyU7MdT3qpr8mbWbrJKhWjjxhsi8N6wlVs5PWwWv6H0SMR+SA5/WwaQ2XVH44Ur1Inuy07UO/RQUE/k8nCt5CE9r1XeJBdVoafzh45IWYmd0nA2dJp0ttA1+lg5D8hkj+PAWgwUME8a3vJYC0tXa3KtEeaGPqjvIQsO/c266HSg9mupoMx7moQ3/LB4o+EmWpR4K5KtPccOmWTm9lpGP+WYkYdBGnZ5zCdagzdHcIa+EBEWOeYy4A50LxZIJvZYTWxhGFtBFXo+SljY8bV01kbCnfdSMfy4URCZPbn3qpZ6cPYUQm047 tzhamakeev@tzhamakeev-HP-ENVY-TS-15-Notebook-PC",
+    "configuration": {
+	"plugin": "accumulo",
+	"params": {
+	    "clusterName": "accumuloHadoopCluster",
+	    "nameNode": "hadoop-name-node",
+	    "replicationFactor": "2",
+	    "password": "my_secret_password"
+	}
+    }
+}

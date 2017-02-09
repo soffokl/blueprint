@@ -13,7 +13,7 @@
 	"size": "LARGE"
     }, {
 	"name": "storm-1",
-	"template": "storm",
+	"template": "tomcat8@4361d4648dbe94226a7dceab1978b8fc44f08212",
 	"peer_group": "STORM-GROUP",
 	"size": "LARGE"
     }],

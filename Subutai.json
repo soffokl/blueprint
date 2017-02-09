@@ -1,0 +1,42 @@
+{
+    "name": "Modern-Real-Time-Big-Data-Stack",
+    "description": "Modern Real-Time Big Data Stack",
+    "nodes": [{
+	"name": "hazelcast-1",
+	"template": "hazelcast@7e6a231303b69374c6c0e0a4f3df2ffcfc298d3a",
+	"peer_group": "HAZELCAST+TOMCAT-GROUP",
+	"size": "SMALL"
+    }, {
+	"name": "tomcat8-1",
+	"template": "tomcat8@4361d4648dbe94226a7dceab1978b8fc44f08212",
+	"peer_group": "HAZELCAST+TOMCAT-GROUP",
+	"size": "LARGE"
+    }, {
+	"name": "storm-1",
+	"template": "storm",
+	"peer_group": "STORM-GROUP",
+	"size": "LARGE"
+    }],
+    "peerGroups": [{
+	"name": "HAZELCAST+TOMCAT-GROUP",
+	"maxPeersInGroup": "1",
+	"pricingPref": {
+	    "maxPrice": "20"
+	},
+	"hwPreferences": {
+	    "avgCpuLoad": "10",
+	    "minFreeRam": "512MiB",
+	    "minFreeDiskSpace": "500MiB"
+	},
+	"zonePreferences": {},
+	"proximityPreferences": {}
+    }, {
+	"name": "STORM-GROUP",
+	"hwPreferences": {
+	    "avgCpuLoad": "10",
+	    "minFreeRam": "768MiB",
+	    "minFreeDiskSpace": "500MiB"
+	}
+    }],
+    "configuration": {}
+}
